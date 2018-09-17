@@ -3,6 +3,8 @@ package entidades;
 public class Calculadora {
 
 	private double numero;
+	private double soma;
+	
 	
 	public double getNumero() {
 		return numero;
