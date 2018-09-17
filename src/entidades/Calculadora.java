@@ -4,7 +4,6 @@ public class Calculadora {
 
 	private double numero;
 	private double numero2;
-	private double soma;
 	
 	
 	public double getNumero() {
