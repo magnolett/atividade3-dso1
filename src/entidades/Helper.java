@@ -7,7 +7,7 @@ public class Helper {
 		return numero.intValue();
 	}
 	
-	private static boolean isInteiro(Double numero) {
+	public static boolean isInteiro(Double numero) {
 		
 		if(numero.toString().split(".")[1].substring(0, 1).equals("0")) {
 			return true;
