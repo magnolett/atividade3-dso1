@@ -14,28 +14,22 @@ public class SeletorCorFrame extends JFrame {
 	private Color color = Color.LIGHT_GRAY;
 	private JPanel colorJPanel;
 
-	public SeletorCorFrame()
-    {
+	public SeletorCorFrame() {
         super("Seletor de Cor");
        
         colorJPanel = new JPanel();
         colorJPanel.setBackground(color);
        
         changeColorJButton = new JButton( "Escolha a cor" );
-        changeColorJButton.addActionListener(
-                new ActionListener()
-                {
-                    public void actionPerformed( ActionEvent event )
-                    {
-                        color = JColorChooser.showDialog(SeletorCorFrame.this, "Escolher a color", color );
-                       
-                        if( color == null )
-                            color = Color.LIGHT_GRAY;
-                        colorJPanel.setBackground( color );
-                    }
-                }
-                );
-       
+        changeColorJButton.addActionListener(new ActionListener() {
+        	public void actionPerformed( ActionEvent event ) {
+                color = JColorChooser.showDialog(SeletorCorFrame.this, "Escolher a color", color );
+                if(color == null)
+                    color = Color.LIGHT_GRAY;
+                	
+                colorJPanel.setBackground( color );
+            	}
+            });
         add( colorJPanel, BorderLayout.CENTER );
         add( changeColorJButton, BorderLayout.SOUTH );
        
@@ -43,10 +37,8 @@ public class SeletorCorFrame extends JFrame {
         setVisible( true );
     }
 	
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SeletorCorFrame application = new SeletorCorFrame();
         application.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
-	
 }
