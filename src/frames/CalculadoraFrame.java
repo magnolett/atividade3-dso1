@@ -4,12 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/**
- * Calculadora [ coloque aqui a descrição da classe ]
- * 
- * @author Bruno Brigantini Ambrozio © Nov - 2003
- * @version 1.0
- */
 public class CalculadoraFrame extends JFrame {
 
 	private JButton botao1;
