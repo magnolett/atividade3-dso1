@@ -105,7 +105,7 @@ public class SeletorCorFrameJColorChoose extends JFrame {
     }
 	
     public static void main(String[] args) {
-        SeletorCorFrame application = new SeletorCorFrame();
+        SeletorCorFrameJColorChoose application = new SeletorCorFrameJColorChoose();
         application.criaTela();
     }
 }
