@@ -1,26 +1,17 @@
 package frames;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import javafx.scene.control.CheckBox;
-import javafx.scene.layout.Border;
 
 public class SeletorCorFrame extends JFrame {
 	private JButton changeColorJButton;
@@ -29,6 +20,8 @@ public class SeletorCorFrame extends JFrame {
 	private JButton cancelButton;
 	private JCheckBox backCheck;
 	private JCheckBox foreCheck;
+	private String[] colors = {"RED", "BLACK", "GREEN", "BLUE"};
+	private JComboBox combobox;
 	
 	public SeletorCorFrame() {
 	
@@ -38,17 +31,25 @@ public class SeletorCorFrame extends JFrame {
 		final JFrame frame = new JFrame("Seletor de Cor");
         final JPanel painel = new JPanel();
 
-        changeColorJButton = new JButton( "Escolha a cor" );
-        changeColorJButton.setSize(300, 50);
-        changeColorJButton.setLocation(0,0);
-        changeColorJButton.addActionListener(new ActionListener() {
-        	public void actionPerformed( ActionEvent event ) {
-                color = JColorChooser.showDialog(SeletorCorFrame.this, "Escolher a color", color );
-                if(color == null)
-                    color = Color.LIGHT_GRAY;
-            	}
-            });
-
+        combobox = new JComboBox<>(colors);
+        combobox.setSize(250, 20);
+        combobox.setLocation(0, 0);
+        combobox.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		        if(combobox.getSelectedItem().equals("RED")) {
+		        	color = Color.RED;
+		        } else if (combobox.getSelectedItem().equals("BLACK")) {
+		        	color = Color.BLACK;
+		        } else if (combobox.getSelectedItem().equals("GREEN")) {
+		        	color = Color.GREEN;
+		        } else if (combobox.getSelectedItem().equals("BLUE")) {
+		        	color = Color.BLUE;
+		        }				
+			}
+		});
+        
         
         backCheck = new JCheckBox("BackGround");
         backCheck.setSize(100, 50);
@@ -97,7 +98,7 @@ public class SeletorCorFrame extends JFrame {
 			}
         });
         
-        painel.add(changeColorJButton);
+        painel.add(combobox);
         painel.add(foreCheck);
         painel.add(backCheck);
         painel.add(okButton);
