@@ -19,14 +19,9 @@ public class CalculadoraFrame extends JFrame {
 	private JTextField fieldDisplay;
 	private JButton botaoDivisao;
 	private JButton botaoMultiplicacao;
-	private JButton linhaV;
 	private JButton botaoSubtracao;
 	private JButton botaoSoma;
 	private JButton botaoIgual;
-	private JButton linhaH;
-	private JButton botaoFechar;
-	private JButton botaoCE;
-	private JButton botaoC;
 	private JButton botaoVirgula;
 
 	private double doubleTotal = 0, doubleTSoma = 0, doubleTSubtracao = 0, doubleTMultiplicacao = 1, doubleTDivisao = 1;
@@ -49,20 +44,17 @@ public class CalculadoraFrame extends JFrame {
 
 		this.getContentPane().setLayout(null);
 		this.getContentPane().setBackground(new Color(204, 204, 204));
-		this.setSize(277, 334);
-		this.setLocation(330, 103);
-		this.setTitle("Calculadora - Igual a Calc. do Win");
+		this.setSize(300, 300);
+		this.setTitle("Calculadora");
 		this.setResizable(false);
-
+		
 		botao1 = new JButton("1");
 		botao1.setBounds(new Rectangle(14, 109, 45, 30));
 		this.getContentPane().add(botao1, null);
 		botao1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				stringArmazena += "1";
 				fieldDisplay.setText(stringArmazena);
-
 			}
 		});
 
@@ -71,7 +63,6 @@ public class CalculadoraFrame extends JFrame {
 		this.getContentPane().add(botao2, null);
 		botao2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				stringArmazena += "2";
 				fieldDisplay.setText(stringArmazena);
 			}
@@ -158,7 +149,7 @@ public class CalculadoraFrame extends JFrame {
 		});
 
 		fieldDisplay = new JTextField();
-		fieldDisplay.setBounds(new Rectangle(4, 18, 265, 28));
+		fieldDisplay.setBounds(new Rectangle(4, 80, 265, 28));
 		this.getContentPane().add(fieldDisplay, null);
 
 		botaoDivisao = new JButton("/");
@@ -185,7 +176,6 @@ public class CalculadoraFrame extends JFrame {
 							doubleTDivisao = Double.parseDouble(stringArmazena);
 							stringArmazena = "";
 							doubleTotal = doubleTDivisao;
-							System.out.println(doubleTotal);
 
 						} else {
 							calcularOperacoes(intOperacoes);
@@ -254,10 +244,6 @@ public class CalculadoraFrame extends JFrame {
 
 		});
 
-		linhaV = new JButton();
-		linhaV.setBounds(new Rectangle(191, 106, 4, 152));
-		this.getContentPane().add(linhaV, null);
-
 		botaoSubtracao = new JButton("-");
 		botaoSubtracao.setBounds(new Rectangle(206, 183, 45, 30));
 		this.getContentPane().add(botaoSubtracao, null);
@@ -285,7 +271,6 @@ public class CalculadoraFrame extends JFrame {
 							doubleTSubtracao = Double.parseDouble(stringArmazena);
 							stringArmazena = "";
 							doubleTotal = doubleTSubtracao;
-							System.out.println(doubleTotal);
 
 						} else {
 							calcularOperacoes(intOperacoes);
@@ -330,7 +315,6 @@ public class CalculadoraFrame extends JFrame {
 							doubleTSoma = Double.parseDouble(stringArmazena);
 							stringArmazena = "";
 							doubleTotal = doubleTSoma;
-							System.out.println(doubleTotal);
 
 						} else {
 							calcularOperacoes(intOperacoes);
@@ -363,45 +347,6 @@ public class CalculadoraFrame extends JFrame {
 				fieldDisplay.setEditable(false);
 				intAcionaIgual = 1;
 
-			}
-		});
-
-		linhaH = new JButton();
-		linhaH.setBounds(new Rectangle(6, 264, 257, 4));
-		this.getContentPane().add(linhaH, null);
-
-		botaoFechar = new JButton("Fechar");
-		botaoFechar.setBounds(new Rectangle(89, 273, 100, 30));
-		this.getContentPane().add(botaoFechar, null);
-		botaoFechar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				aoFechar();
-			}
-		});
-
-		botaoCE = new JButton("CE");
-		botaoCE.setBounds(new Rectangle(14, 68, 84, 30));
-		this.getContentPane().add(botaoCE, null);
-		botaoCE.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				fieldDisplay.setEditable(true);
-				fieldDisplay.setText(null);
-				fieldDisplay.setEditable(false);
-				stringArmazena = "";
-			}
-		});
-
-		botaoC = new JButton("C");
-		botaoC.setBounds(new Rectangle(98, 68, 84, 30));
-		this.getContentPane().add(botaoC, null);
-		botaoC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				doubleTotal = 0;
-				intAuxMulDiv = 0;
-				stringArmazena = "";
-				intAuxOp = 0;
-				fieldDisplay.setText(null);
 			}
 		});
 
